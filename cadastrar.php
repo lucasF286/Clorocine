@@ -26,51 +26,55 @@
             <div class="card">
                 <div class="card-content">
                     <span class="card-title">Cadastrar Filme</span>
-                    <!-- input titulo -->
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="titulo" type="text" class="validate" require>
-                            <label for="titulo">Título do filme</label>
-                        </div>
-                    </div>
 
-                    <!-- input sinopse -->
-                    <div class="row">
-                        <form class="col s12">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <textarea id="sinopse" class="materialize-textarea"></textarea>
-                                    <label for="sinopse">Sinopse</label>
+                    <form method="post" action="cadastraFilme.php" id="cadastraFilme">
+                        <!-- input titulo -->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="titulo" type="text" class="validate" name="titulo" require>
+                                <label for="titulo">Título do filme</label>
+                            </div>
+                        </div>
+
+                        <!-- input sinopse -->
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea id="sinopse" class="materialize-textarea" name="sinopse"></textarea>
+                                        <label for="sinopse">Sinopse</label>
+                                    </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-
-                    <!--  input nota -->
-                    <div class="row">
-                        <div class="input-field col s3">
-                            <input id="nota" type="number" step=".1" min=0 max=10 class="validate" require>
-                            <label for="nota">Nota</label>
                         </div>
-                    </div>
 
-                    <!-- input capa -->
+                        <!--  input nota -->
+                        <div class="row">
+                            <div class="input-field col s3">
+                                <input id="nota" type="number" step=".1" min=0 max=10 class="validate" name="nota" require>
+                                <label for="nota">Nota</label>
+                            </div>
+                        </div>
 
-                    <div class="file-field input-field">
-                        <div class="btn purple lighten-2 black-text">
-                            <span>Capa</span>
-                            <input type="file">
+                        <!-- input capa -->
+
+                        <div class="file-field input-field">
+                            <div class="btn purple lighten-2 black-text">
+                                <span>Capa</span>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" name="capa">
+                            </div>
                         </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
-                        </div>
-                    </div>
 
                 </div>
                 <div class="card-action">
                     <a class="waves-effect waves-light btn grey" href="galeria.php">Cancelar</a>
-                    <a href="#" class="waves-effect waves-light btn purple">Cadastrar</a>
+                    <button type="submit" class="waves-effect waves-light btn purple">Cadastrar</button>
                 </div>
+
+                </form>
             </div>
         </div>
     </div>
