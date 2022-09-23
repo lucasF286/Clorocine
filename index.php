@@ -1,18 +1,15 @@
 <?php include "cabeçalho.php"  ?>
 
 <?php
-require_once "db.class.php";
 
-$objDb = new db();
-$link = $objDb->conecta_myslq();
+require_once "repository/FilmesRepositoryPDO.php";
 
-$sql = "SELECT * FROM filme";
-
-$retorno = mysqli_query($link, $sql);
+$filmesRepository = new FilmesRepositoryPDO();
+$filmes = $filmesRepository->listarTodos();
 
 ?>
 
-<body>
+<body></body>
 
     <nav class="nav-extended purple lighten-3">
         <div class="nav-wrapper">
@@ -32,12 +29,14 @@ $retorno = mysqli_query($link, $sql);
             </ul>
         </div>
     </nav>
+    
+    <div class="container">
 
     <div class="row">
 
-        <?php while($filme = mysqli_fetch_array($retorno, MYSQLI_ASSOC)) : ?>
+        <?php foreach($filmes as $filme) : ?>
 
-        <div class="col s3">
+        <div class="col s12 m5 l3">
             <div class="card hoverable">
                 <div class="card-image">
                     <img src="<?= $filme["poster"] ?>">
@@ -57,9 +56,11 @@ $retorno = mysqli_query($link, $sql);
             </div>
         </div>
 
-        <?php endwhile ?>
+        <?php endforeach ?>
     </div>
 
-</body>
+    </div>
+
+    </body>
 
 </html>

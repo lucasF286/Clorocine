@@ -1,11 +1,18 @@
 <?php include "cabeçalho.php" ?>
 
+<?php
+
+session_start();
+require_once "util/Mensagem.php";
+
+?>
+
 <body>
 
     <nav class="nav-extended  purple lighten-3">
         <div class="nav-wrapper">
             <ul id="nav-mobile" class="right">
-                <li><a href="galeria.php">Galeria</a></li>
+                <li><a href="index.php">Galeria</a></li>
                 <li class="active"><a href="cadastrar.php">Cadastrar</a></li>
             </ul>
         </div>
@@ -31,7 +38,7 @@
                         <!-- input titulo -->
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="titulo" type="text" class="validate" name="titulo" require>
+                                <input id="titulo" type="text" class="validate" name="titulo" required>
                                 <label for="titulo">Título do filme</label>
                             </div>
                         </div>
@@ -51,7 +58,7 @@
                         <!--  input nota -->
                         <div class="row">
                             <div class="input-field col s3">
-                                <input id="nota" type="number" step=".1" min=0 max=10 class="validate" name="nota" require>
+                                <input id="nota" type="number" step=".1" min=0 max=10 class="validate" name="nota" required>
                                 <label for="nota">Nota</label>
                             </div>
                         </div>
@@ -64,7 +71,7 @@
                                 <input type="file">
                             </div>
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text" name="capa">
+                                <input class="file-path validate" type="text" name="poster">
                             </div>
                         </div>
 
@@ -78,5 +85,7 @@
             </div>
         </div>
     </div>
+
+    <?= Mensagem::mostrar() ?>
 
 </body>

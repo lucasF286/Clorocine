@@ -1,25 +1,24 @@
-<?php 
+<?php
 
-require_once "db.class.php";
+session_start();
 
-$titulo = $_POST['titulo'];
-$sinopse = $_POST['sinopse'];
-$nota = $_POST['nota'];
-$capa = $_POST['capa'];
+require_once "repository/FilmesRepositoryPDO.php";
+require_once "model/Filme.php";
 
-$objDb = new db();
-$link = $objDb->conecta_myslq();
+$filmesRepository = new FilmesRepositoryPDO();
+$filme = new Filme();
 
-$sql = "INSERT INTO FILME(titulo, poster, sinopse, nota) values
- ('{$titulo}', '{$capa}', '{$sinopse}', '{$nota}')";
+$filme->titulo =  $_POST['titulo'];
+$filme->sinopse = $_POST['sinopse'];
+$filme->nota = $_POST['nota'];
+$filme->poster = $_POST['poster'];
 
- if (mysqli_query($link, $sql)){
-    $retornoGet = 'retorno=1&';
-    header("Location: cadastrar.php?".$retornoGet);
+ if ($filmesRepository->salvar($filme)){
+    $_SESSION["msg"] = "Filme cadastrado com sucesso!";
  } else {
-    $retornoGet = 'retorno=0&';
-    header("Location: cadastrar.php?".$retornoGet);
+   $_SESSION["msg"] = "Erro ao cadastrar Filme!";
  }
 
+ header("Location: cadastrar.php");
 
 
