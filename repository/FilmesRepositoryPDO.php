@@ -1,6 +1,6 @@
 <?php
 
-require_once "db.class.php";
+require_once "../db/db.class.php";
 require_once "Conexao.php";
 
 class FilmesRepositoryPDO {

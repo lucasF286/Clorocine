@@ -2,7 +2,7 @@
 
 <?php
 
-require_once "repository/FilmesRepositoryPDO.php";
+require_once "../repository/FilmesRepositoryPDO.php";
 
 $filmesRepository = new FilmesRepositoryPDO();
 $filmes = $filmesRepository->listarTodos();

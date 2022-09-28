@@ -3,7 +3,7 @@
 <?php
 
 session_start();
-require_once "util/Mensagem.php";
+require_once "../util/Mensagem.php";
 
 ?>
 
@@ -34,7 +34,7 @@ require_once "util/Mensagem.php";
                 <div class="card-content">
                     <span class="card-title">Cadastrar Filme</span>
 
-                    <form method="post" action="cadastraFilme.php" id="cadastraFilme">
+                    <form method="post" action="../controller/cadastraFilme.php" enctype="multipart/form-data" id="cadastraFilme">
                         <!-- input titulo -->
                         <div class="row">
                             <div class="input-field col s12">
@@ -68,7 +68,7 @@ require_once "util/Mensagem.php";
                         <div class="file-field input-field">
                             <div class="btn purple lighten-2 black-text">
                                 <span>Capa</span>
-                                <input type="file">
+                                <input type="file" name="poster_file">
                             </div>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text" name="poster">
